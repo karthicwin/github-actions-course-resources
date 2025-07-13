@@ -1,0 +1,39 @@
+Workflows
+    - Jobs (steps 1 - 2 - 3)
+    - Triggered upon events
+
+Jobs
+    - Runners (execution environment)
+    - run in parallel or linear
+    - can be conditional
+
+steps
+    - shell script or action (predefined scripts)
+    - can use custom or third party actions
+    - Steps executed in order 
+    - can be conditional
+
+name: (name of workflow)
+on: (key that git looks for triggering event)
+jobs:
+    (yml works on intendation)
+    first-job: 
+        runs-on: 
+
+
+If you need to run multiple shell commands (or multi-line commands, e.g., for readability), 
+you can easily do so by adding the pipe symbol (|) as a value after the run: key.
+
+Like this:
+    ...
+    run: |
+        echo "First output"
+        echo "Second output"
+
+    steps: 
+      - name: Print greeting
+        run: echo "Hello World!"
+      - name: Print goodbye
+        run: echo "Done - bye!"
+
+This will run both commands in one step.
